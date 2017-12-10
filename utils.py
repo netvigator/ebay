@@ -15,6 +15,11 @@ import shutil
 import os
 
 
+# http://python-future.org/compatible_idioms.html
+# urllib module
+# urllib is the hardest module to use from Python 2/3 compatible code.
+
+# Python 2 and 3: alternative 4 (modified)
 if PYTHON3:
     from urllib.request import urlopen, Request
 else:
