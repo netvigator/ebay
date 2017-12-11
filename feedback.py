@@ -1,8 +1,8 @@
 # import urllib2
-import six
+
 from lxml import etree
 
-from utils import get_config_store
+from ebay_utils import get_config_store, urlopen, Request
 
 
 def createDSRSummaryByCategory(categoryId , dateRangeFrom, dateRangeTo, dateRangeEventType=None, encoding="JSON"):
@@ -121,8 +121,8 @@ def get_response(operation_name, data, encoding, **headers):
     http_headers.update(headers)
 
     # req = urllib2.Request(endpoint, data, http_headers)
-    req = six.Request(endpoint, data, http_headers)
+    req = Request(endpoint, data, http_headers)
     # res = urllib2.urlopen(req)
-    res = six.urlopen(req)
+    res = urlopen(req)
     data = res.read()
     return data

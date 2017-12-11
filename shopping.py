@@ -1,5 +1,6 @@
 import requests
-from utils import get_config_store
+
+from ebay_utils import get_config_store, urlopen, Request
 
 
 # Item Search

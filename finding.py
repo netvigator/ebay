@@ -2,7 +2,7 @@ from lxml import etree
 
 # import urllib2
 
-from .utils import get_config_store, urlopen, Request
+from ebay_utils import get_config_store, urlopen, Request
 
 
 def getSearchKeywordsRecommendation( keywords, encoding="JSON", **headers ):
@@ -421,10 +421,5 @@ def get_response(operation_name, data, encoding, **headers):
     # res = urllib2.urlopen(req)
     res = urlopen(req)
     data = res.read()
-    #
-    try:
-        data = data.decode('utf-8')
-    except AttributeError:
-        pass
     #
     return data

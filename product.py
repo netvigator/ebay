@@ -1,10 +1,10 @@
 # import urllib2
-import six
+
 from lxml import etree
 from six import print_ as print3
 
-from utils import (get_config_store, Specification, CompatibilityPropertyFilter, 
-                   Value, SortOrder)
+from ebay_utils import (get_config_store, urlopen, Request, Specification,
+                        CompatibilityPropertyFilter,  Value, SortOrder)
 
 def findCompatibilitiesBySpecification(specification, \
                                        categoryId, \
@@ -236,8 +236,8 @@ def get_response(operation_name, data, encoding, **headers):
     http_headers.update(headers)
 
     # req = urllib2.Request(endpoint, data, http_headers)
-    req = six.Request(endpoint, data, http_headers)
+    req = Request(endpoint, data, http_headers)
     # res = urllib2.urlopen(req)
-    res = six.urlopen(req)
+    res = urlopen(req)
     data = res.read()
     return data

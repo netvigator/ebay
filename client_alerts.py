@@ -1,6 +1,6 @@
 import requests
-from utils import get_config_store
 
+from ebay_utils import get_config_store, urlopen, Request
 
 def GetPublicAlerts(ChannelID, ChannelType, EventType, MessageID=None, LastRequestTime=None, encoding="JSON"):
     user_param={'callname' : GetPublicAlerts.__name__,
