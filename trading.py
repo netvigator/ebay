@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 import sys
-from utils import (get_endpoint_response, get_config_store,
-        get_endpoint_response_with_file, add_e, imgur_post)
 from lxml import etree, objectify
 from xml.dom.minidom import parseString
 
