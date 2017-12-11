@@ -2,7 +2,7 @@
 
 from lxml import etree
 
-from ebay_utils import get_config_store, urlopen, Request
+from utils import get_config_store, urlopen, Request
 
 
 def createDSRSummaryByCategory(categoryId , dateRangeFrom, dateRangeTo, dateRangeEventType=None, encoding="JSON"):

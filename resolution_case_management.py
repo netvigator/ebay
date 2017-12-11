@@ -2,7 +2,7 @@
 
 from lxml import etree
 
-from ebay_utils import get_config_store, urlopen, Request
+from utils import get_config_store, urlopen, Request
 
 # case retrieval calls
 def getUserCases(caseStatusFilter = None,

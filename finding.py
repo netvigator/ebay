@@ -2,7 +2,7 @@ from lxml import etree
 
 # import urllib2
 
-from ebay_utils import get_config_store, urlopen, Request
+from utils import get_config_store, urlopen, Request
 
 
 def getSearchKeywordsRecommendation( keywords, encoding="JSON", **headers ):

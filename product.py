@@ -3,8 +3,8 @@
 from lxml import etree
 from six import print_ as print3
 
-from ebay_utils import (get_config_store, urlopen, Request, Specification,
-                        CompatibilityPropertyFilter,  Value, SortOrder)
+from utils import ( get_config_store, urlopen, Request, Specification,
+                    CompatibilityPropertyFilter,  Value, SortOrder )
 
 def findCompatibilitiesBySpecification(specification, \
                                        categoryId, \
