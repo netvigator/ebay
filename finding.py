@@ -2,8 +2,10 @@ from lxml import etree
 
 # import urllib2
 
-from utils import get_config_store, urlopen, Request
-
+try:
+    from  utils import get_config_store, urlopen, Request
+except ImportError:
+    from .utils import get_config_store, urlopen, Request
 
 def getSearchKeywordsRecommendation( keywords, encoding="JSON", **headers ):
     root = etree.Element("getSearchKeywordsRecommendation",

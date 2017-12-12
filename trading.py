@@ -4,8 +4,12 @@ import sys
 from lxml import etree, objectify
 from xml.dom.minidom import parseString
 
-from utils import ( get_endpoint_response, get_config_store,
-                    get_endpoint_response_with_file, add_e, imgur_post )
+try:
+    from  utils import ( get_endpoint_response, get_config_store,
+                         get_endpoint_response_with_file, add_e, imgur_post )
+except ImportError:
+    from .utils import ( get_endpoint_response, get_config_store,
+                         get_endpoint_response_with_file, add_e, imgur_post )
 
 CID = {
     'new': '1000',
@@ -89,17 +93,18 @@ def addItem(title, description, primaryCategoryId,
     return response
 
 
-def getCategories(parentId=None, \
-                detailLevel='ReturnAll', \
-                errorLanguage=None, \
-                messageId=None, \
-                outputSelector=None, \
-                version=None, \
-                warningLevel="High", \
-                levelLimit=1, \
-                viewAllNodes=True, \
-                categorySiteId=0, \
-                encoding="JSON"):
+def getCategories(  parentId=None, \
+                    detailLevel='ReturnAll', \
+                    errorLanguage=None, \
+                    messageId=None, \
+                    outputSelector=None, \
+                    version=None, \
+                    warningLevel="High", \
+                    levelLimit=1, \
+                    viewAllNodes=True, \
+                    categorySiteId=0, \
+                    encoding="JSON",
+                    **headers ):
     """
     Using a query string and parentId this function returns
     all the categories containing that string within the category name,
@@ -159,7 +164,7 @@ def getCategories(parentId=None, \
     #need to specify xml declaration and encoding or else will get error
     request = etree.tostring(root, pretty_print=False,
                               xml_declaration=True, encoding="utf-8")
-    response = get_response("GetCategories", request, encoding)
+    response = get_response("GetCategories", request, encoding,  **headers )
 
     return response
 

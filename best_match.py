@@ -2,8 +2,11 @@
 
 from lxml import etree
 
-from utils import get_config_store, urlopen, Request
-
+try:
+    from  utils import get_config_store, urlopen, Request
+except ImportError:
+    from .utils import get_config_store, urlopen, Request
+    
 def findBestMatchItemDetailsAcrossStores(keywords, \
                                          siteResultsPerPage, \
                                          categoryId=None, \

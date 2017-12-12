@@ -3,8 +3,10 @@
 from lxml import etree
 from six import print_ as print3
 
-from utils import ( get_config_store, urlopen, Request, Specification,
-                    CompatibilityPropertyFilter,  Value, SortOrder )
+try:
+    from  utils import ( get_config_store, urlopen, Request, Specification,
+                         CompatibilityPropertyFilter,  Value, SortOrder )
+except ImportError:
 
 def findCompatibilitiesBySpecification(specification, \
                                        categoryId, \

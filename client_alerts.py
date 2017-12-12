@@ -1,6 +1,9 @@
 import requests
 
-from utils import get_config_store, urlopen, Request
+try:
+    from  utils import get_config_store, urlopen, Request
+except ImportError:
+    from .utils import get_config_store, urlopen, Request
 
 def GetPublicAlerts(ChannelID, ChannelType, EventType, MessageID=None, LastRequestTime=None, encoding="JSON"):
     user_param={'callname' : GetPublicAlerts.__name__,
